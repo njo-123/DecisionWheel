@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <!-- Main Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Decide For Me"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.simon.decisionwheel.WheelView
+                android:id="@+id/wheelView"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/inputContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/btnAddOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#333333"
+                android:text="+ ADD OPTION (Max 10)"
+                android:textColor="#03A9F4" />
+
+            <Button
+                android:id="@+id/btnSpin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#03A9F4"
+                android:text="SPIN THE WHEEL"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- THE WINNER ANIMATION OVERLAY (Changed to FrameLayout) -->
+    <FrameLayout
+        android:id="@+id/winnerOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Confetti sits in the background -->
+        <nl.dionsegijn.konfetti.xml.KonfettiView
+            android:id="@+id/konfettiView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Text and Button sit centered on top of the confetti -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvWinnerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="THE WINNER IS"
+                android:textColor="#03A9F4"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvWinnerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pizza"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"/>
+
+            <Button
+                android:id="@+id/btnCloseWinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#03A9F4"
+                android:text="PLAY AGAIN"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>
